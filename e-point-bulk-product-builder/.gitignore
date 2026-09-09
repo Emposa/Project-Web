@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+build/
+dist/*
+!dist/ePoint CSV Studio.exe
+!dist/UPUTE.md
+!dist/PROVJERE.md
+dist/ms-playwright/
+dist/data/
+data/
+test-output/
+*.spec
+
