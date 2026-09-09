@@ -2,6 +2,8 @@ import os
 import sys
 from pathlib import Path
 
+from epoint_csv.ui import App
+
 
 def main():
     if os.name == "nt":
@@ -10,7 +12,6 @@ def main():
             ctypes.windll.shcore.SetProcessDpiAwareness(1)
         except Exception:
             pass
-    from epoint_csv.ui import App
     folder = None
     if "--smoke-test" in sys.argv:
         import tempfile
@@ -41,4 +42,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 

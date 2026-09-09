@@ -8,7 +8,7 @@ Push-Location -LiteralPath $projectDir
 try {
     & $pythonExe -m unittest discover -s tests -v
     if ($LASTEXITCODE -ne 0) { throw 'Testovi nisu prošli.' }
-    & $pythonExe -m PyInstaller --noconfirm --clean --onefile --windowed --name 'ePoint CSV Studio' --collect-data jsonschema_specifications main.py
+    & $pythonExe -m PyInstaller --noconfirm --clean --onefile --windowed --name 'ePoint CSV Studio' --collect-data jsonschema_specifications --hidden-import epoint_csv.ui --hidden-import epoint_csv.core --hidden-import epoint_csv.research --hidden-import epoint_csv.secrets main.py
     if ($LASTEXITCODE -ne 0) { throw 'Izrada EXE nije uspjela.' }
     Copy-Item -LiteralPath (Join-Path $projectDir 'README.md') -Destination (Join-Path $projectDir 'dist\UPUTE.md')
     Copy-Item -LiteralPath (Join-Path $projectDir 'PROVJERE.md') -Destination (Join-Path $projectDir 'dist\PROVJERE.md')
@@ -20,4 +20,5 @@ try {
 } finally {
     Pop-Location
 }
+
 
